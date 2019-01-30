@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html    xmlns:ng="http://angularjs.org" lang="en"  ng-app="app" >
+<head>
+    <meta charset="UTF-8">
+    <title ng-bind="($title || 'Details') + ' :: '" >Details </title>
+
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+<hr>
+<div class="container bootstrap snippet">
+    <div ng-controller="StarWarsCRUDCtrl" data-ng-init="getCharacter()">
+        <p style="color: green">{{message}}</p>
+        <p style="color: red">{{errorMessage}}</p>
+        <div class="row">
+            <div class="col-sm-12 text-right" >
+                <button ng-if="character.favourite=='0'"  type="button" class="btn btn-default btn-sm" ng-click="addFavourite()"><span class="glyphicon glyphicon-plus pull-left"></span> Add to favorite</button>
+                <button ng-if="character.favourite=='1'" type="button"   class="btn btn-warning btn-sm" ng-click="removeFavourite()"><span class="glyphicon glyphicon-remove pull-left"></span> Remove from favorite</button>
+            </div>
+
+
+        </div>
+        <hr/>
+            <div class="row">
+                <div class="col-sm-3">
+                    <!--left col-->
+                    <ul class="list-group">
+                        <li class="list-group-item text-muted">Profile</li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Name</strong></span>   {{character.name}}    </li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Height</strong></span>   {{character.height}}  </li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Mass</strong></span>   {{character.mass}}     </li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Hair Color</strong></span>  {{character.hair_color}}    </li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Skin Color</strong></span>    {{character.skin_color}}      </li>
+                          <li class="list-group-item text-right"><span class="pull-left"><strong>Eye Color</strong></span>   {{character.eye_color}}     </li>
+
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Birth Year</strong></span>  {{character.birth_year}}      </li>
+
+
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Gender</strong></span>   {{character.gender}}      </li>
+
+                    </ul>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
+                        <div class="panel-body"><a href="{{character.url}}">   {{character.url}} </a></div>
+                    </div>
+
+                    <ul class="list-group">
+                        <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Creted</strong></span>    {{character.created}} </li>
+                        <li class="list-group-item text-right "><span class="pull-left"><strong>Edited</strong></span>   {{character.edited}} </li>
+                    </ul>
+
+
+
+                </div>
+                <!--/col-3-->
+                <div class="col-sm-9">
+
+                    <ul class="nav nav-tabs" id="myTab">
+                        <li class="active"><a href="#home" data-toggle="tab">Films</a></li>
+                        <li><a href="#species" data-toggle="tab">Species</a></li>
+                        <li><a href="#vehicles" data-toggle="tab">vehicles</a></li>
+                        <li><a href="#starships" data-toggle="tab">starships</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home">
+
+                            <h2></h2>
+
+                            <ul class="list-group">
+                                   <li class="list-group-item text-muted">Films</li>
+                                    <li class="list-group-item text-right " ng-repeat="film in character.films"><a href="{{film}}" class="pull-left" >{{film}}</a> &nbsp;  </li>
+
+                            </ul>
+
+                        </div>
+                        <!--/tab-pane-->
+                        <div class="tab-pane" id="species">
+
+                            <h2></h2>
+                            <li class="list-group-item text-muted">Species</li>
+                            <li class="list-group-item text-right " ng-repeat="specie in character.species"><a href="{{specie}}" class="pull-left" >{{specie}}</a> &nbsp;  </li>
+                        </div>
+
+                        <!--/tab-pane-->
+                        <div class="tab-pane" id="vehicles">
+
+                            <h2></h2>
+                            <li class="list-group-item text-muted">Vehicles</li>
+                            <li class="list-group-item text-right " ng-repeat="vehicle in character.vehicles"><a href="{{vehicle}}" class="pull-left" >{{vehicle}}</a> &nbsp;  </li>
+                        </div>
+
+                        <!--/tab-pane-->
+                        <div class="tab-pane" id="starships">
+
+                            <h2></h2>
+                            <li class="list-group-item text-muted">Starships</li>
+                            <li class="list-group-item text-right " ng-repeat="starship in character.starships"><a href="{{starship}}" class="pull-left" >{{starship}}</a> &nbsp;  </li>
+                        </div>
+
+                    </div>
+                    <!--/tab-pane-->
+                </div>
+                <!--/tab-content-->
+
+            </div>
+            <!--/col-9-->
+    </div> <!-- close angular controller-->
+
+</div>
+
+</body>
+<script
+        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js">
+</script>
+<script src="js/app.js"></script>
+<!--<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</html>
