@@ -1,4 +1,10 @@
 package InM.Pojos;
+/**
+ * @author: Chris Kibuchi
+ *
+ * This Pojo is used to map the json data from swapi
+ * The json data is mapped to an array of objects of this class
+ */
 
 import java.util.HashMap;
 import java.util.List;

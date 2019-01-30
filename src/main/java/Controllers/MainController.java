@@ -22,6 +22,11 @@ import java.util.*;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+/**
+ *
+ * This Controller class is used add to favorites, remove from favorite
+ */
+
 @Controller
 public class MainController {
     private static final Logger LOGGER = Logger.getLogger(MainController.class.getName());

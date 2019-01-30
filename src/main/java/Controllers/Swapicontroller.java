@@ -22,6 +22,10 @@ import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+/**
+ * This Controller is called by angular js to fetch characters data, previous list and the next list
+ *
+ */
 @RestController
 public class Swapicontroller {
 
